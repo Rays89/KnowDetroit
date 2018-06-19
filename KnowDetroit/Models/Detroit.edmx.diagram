@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d7ec6acda9443279424ab8884b5c11b" Name="Diagram1">
+        <EntityTypeShape EntityType="DetroitModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.AspNetRole" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.AspNetUserClaim" Width="1.5" PointX="6.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.AspNetUser" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="1.875" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="DetroitModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DetroitModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DetroitModel.FK_Review_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="DetroitModel.Landmark_Review" ManuallyRouted="false" />
+        <AssociationConnector Association="DetroitModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
