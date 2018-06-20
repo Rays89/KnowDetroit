@@ -10,13 +10,13 @@
         <EntityTypeShape EntityType="DetroitModel.AspNetUserClaim" Width="1.5" PointX="6.5" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DetroitModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DetroitModel.AspNetUser" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="1.875" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="DetroitModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="DetroitModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="DetroitModel.FK_Review_AspNetUsers" ManuallyRouted="false" />
-        <AssociationConnector Association="DetroitModel.Landmark_Review" ManuallyRouted="false" />
         <AssociationConnector Association="DetroitModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="4.375" PointY="1" />
+        <AssociationConnector Association="DetroitModel.Landmark_Review" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
