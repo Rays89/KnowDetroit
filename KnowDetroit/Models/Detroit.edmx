@@ -77,7 +77,11 @@
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Rating" Type="int" />
+<<<<<<< HEAD
           <Property Name="image" Type="nvarchar" MaxLength="100" />
+=======
+          <Property Name="image" Type="nvarchar(max)" />
+>>>>>>> d5a4d5843927ae15cc175a404985b02f349c1031
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -88,7 +92,7 @@
           <Property Name="Review" Type="nvarchar(max)" />
           <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="ReviewNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Rating" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -280,6 +284,7 @@
           <Property Name="ReviewNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Review_AspNetUsers" FromRole="Review" ToRole="AspNetUsers" />
+          <Property Name="Rating" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Landmark" Relationship="DetroitModel.Landmark_Review" FromRole="Review" ToRole="Landmark" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
@@ -365,7 +370,11 @@
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Rating" Type="Int32" />
+<<<<<<< HEAD
           <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+=======
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+>>>>>>> d5a4d5843927ae15cc175a404985b02f349c1031
           <NavigationProperty Name="Reviews" Relationship="DetroitModel.Landmark_Review" FromRole="Landmark" ToRole="Review" />
         </EntityType>
         <Association Name="Landmark_Review">
@@ -445,12 +454,12 @@
           <EntitySetMapping Name="Reviews">
             <EntityTypeMapping TypeName="DetroitModel.Review">
               <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
                 <ScalarProperty Name="SiteName" ColumnName="SiteName" />
                 <ScalarProperty Name="Recommended" ColumnName="Recommended" />
                 <ScalarProperty Name="Review1" ColumnName="Review" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="ReviewNumber" ColumnName="ReviewNumber" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

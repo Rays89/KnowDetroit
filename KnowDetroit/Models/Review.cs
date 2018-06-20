@@ -20,6 +20,7 @@ namespace KnowDetroit.Models
         public string UserID { get; set; }
         public int ReviewNumber { get; set; }
         public string UserName { get; set; }
+        public int Rating { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
         public virtual Landmark Landmark { get; set; }
