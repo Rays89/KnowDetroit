@@ -61,5 +61,14 @@ namespace KnowDetroit.Controllers
             //return data as Json
             return Json(Result);
         }
+        public ActionResult SortByAlphabeticalOrder()
+        {
+            DetroitEntities ORM = new DetroitEntities();
+            //List<Landmark> Result = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList().OrderBy(Landmarks.SiteName);
+            // return ORM.Landmarks.Find(SiteName).orderByDescending(c => c.SiteName).Tolist()[0];
+            List<Landmark> LandmarkList = ORM.Landmarks.OrderByDescending(c => c.SiteName).ToList();
+            ViewBag.AlphabeticalList = LandmarkList;
+            return View();
+        }
     }
 }
