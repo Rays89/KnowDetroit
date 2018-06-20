@@ -220,7 +220,13 @@
       <DependentUpon>Detroit.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Landmark.cs">
+      <DependentUpon>Detroit.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Review.cs">
+      <DependentUpon>Detroit.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -232,10 +238,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Detroit.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Detroit.edmx</DependentUpon>
+      <LastGenOutput>Detroit.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Detroit.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Detroit.edmx</DependentUpon>
+      <LastGenOutput>Detroit.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\Detroit.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Detroit.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Detroit.edmx.diagram">
+      <DependentUpon>Detroit.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
