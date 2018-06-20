@@ -76,8 +76,8 @@
           <Property Name="Longitude" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Address" Type="nvarchar(max)" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Image" Type="image" />
           <Property Name="Rating" Type="int" />
+          <Property Name="image" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -364,8 +364,8 @@
           <Property Name="Longitude" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Rating" Type="Int32" />
+          <Property Name="image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Reviews" Relationship="DetroitModel.Landmark_Review" FromRole="Landmark" ToRole="Review" />
         </EntityType>
         <Association Name="Landmark_Review">
@@ -465,8 +465,8 @@
           <EntitySetMapping Name="Landmarks">
             <EntityTypeMapping TypeName="DetroitModel.Landmark">
               <MappingFragment StoreEntitySet="Landmark">
+                <ScalarProperty Name="image" ColumnName="image" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Longitude" ColumnName="Longitude" />

@@ -70,5 +70,33 @@ namespace KnowDetroit.Controllers
             ViewBag.AlphabeticalList = LandmarkList;
             return View();
         }
+
+        public ActionResult ReviewForm(string SiteName)
+        {
+            ViewBag.SiteName = SiteName;
+            return View();
+        }
+
+        public ActionResult AddNewRating(Review userReview)
+        {
+            DetroitEntities ORM = new DetroitEntities();
+            
+            ORM.Reviews.Add(userReview);
+
+            
+            ORM.SaveChanges();
+            ViewBag.RatingList = ORM.Reviews.ToList();
+            return RedirectToAction("LandmarkView");
+
+        }
+        //public ActionResult CalculateRating(int newRating)
+        //{
+
+        //    DetroitEntities ORM = new DetroitEntities();
+
+        //    List<int> RatingList = new List<int>();
+
+
+        //}
     }
 }
