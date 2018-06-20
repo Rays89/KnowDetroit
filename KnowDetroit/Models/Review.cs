@@ -19,7 +19,6 @@ namespace KnowDetroit.Models
         public string Review1 { get; set; }
         public string UserID { get; set; }
         public int ReviewNumber { get; set; }
-        public string UserName { get; set; }
         public int Rating { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }

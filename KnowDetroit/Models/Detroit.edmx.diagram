@@ -4,19 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5d7ec6acda9443279424ab8884b5c11b" Name="Diagram1">
-        <EntityTypeShape EntityType="DetroitModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DetroitModel.AspNetRole" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DetroitModel.AspNetUserClaim" Width="1.5" PointX="6.5" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DetroitModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DetroitModel.AspNetUser" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="1.875" PointY="1.375" IsExpanded="true" />
-        <AssociationConnector Association="DetroitModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="DetroitModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+      <Diagram DiagramId="80652b71fc0b48d9be20d9f00f2bcd50" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="DetroitModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <AssociationConnector Association="DetroitModel.FK_Review_AspNetUsers" ManuallyRouted="false" />
-        <AssociationConnector Association="DetroitModel.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="4.375" PointY="1" />
-        <AssociationConnector Association="DetroitModel.Landmark_Review" />
+        <AssociationConnector Association="DetroitModel.Landmark_Review" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

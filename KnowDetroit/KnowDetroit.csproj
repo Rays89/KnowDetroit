@@ -201,19 +201,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>Detroit.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>Detroit.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>Detroit.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>Detroit.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>Detroit.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Detroit.Context.cs">
