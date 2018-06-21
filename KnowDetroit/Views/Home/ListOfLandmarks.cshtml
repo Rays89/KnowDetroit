@@ -14,8 +14,6 @@ Search <form action="/Home/SearchLandmarkBySiteName">
     <input type="text" name="SiteName" id="SiteName" />
 </form>
 
-
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {
@@ -40,7 +38,6 @@ Search <form action="/Home/SearchLandmarkBySiteName">
                             var Tr = "<tr>";
                             var Td1 = "<td>" + `<a href="/Home/LandmarkView?SiteName=${Landmark.SiteName}">` + Landmark.SiteName + "</a></td>";
                             var Td2 = "<td>" + Landmark.Address + "</td>";
-                            var Td3 = "<td>" + Landmark.Rating + "</td>";
                             $("#searchResults").append(Tr + Td1 + Td2 + "</tr>");
                         }
                     }
