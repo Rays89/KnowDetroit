@@ -10,6 +10,6 @@
 <p>@ViewBag.Found.Address</p>
 <p>@ViewBag.Found.Rating</p>
 
-<form action="/Home/ReviewForm">
+<form action="/Home/ReviewForm?SiteName=@ViewBag.Found.SiteName">
     <input type="submit" value="Click here to Rate/Review!" />
 </form>

@@ -73,8 +73,9 @@ namespace KnowDetroit.Controllers
 
         public ActionResult ReviewForm(string SiteName)
         {
-            ViewBag.SiteName = SiteName;
-            return View();
+            DetroitEntities ORM = new DetroitEntities();
+            ViewBag.Found = ORM.Reviews.Find(SiteName);
+                return View();
         }
 
         public ActionResult AddNewRating(Review userReview)
