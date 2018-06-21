@@ -41,8 +41,6 @@ Search <form action="/Home/SearchLandmarkBySiteName">
                             var Td1 = "<td>" + `<a href="/Home/LandmarkView?SiteName=${Landmark.SiteName}">` + Landmark.SiteName + "</a></td>";
                             var Td2 = "<td>" + Landmark.Address + "</td>";
                             var Td3 = "<td>" + Landmark.Rating + "</td>";
-
-
                             $("#searchResults").append(Tr + Td1 + Td2 + "</tr>");
                         }
                     }
