@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="833e75b6f95844f3963dc9bc9e930994" Name="Diagram1">
-        <EntityTypeShape EntityType="DetroitModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1" />
-        <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="0.75" PointY="5.625" />
-        <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="3" PointY="1.5" />
-        <AssociationConnector Association="DetroitModel.FK_Review_AspNetUsers" />
-        <AssociationConnector Association="DetroitModel.Landmark_Review" />
+      <Diagram DiagramId="bdf65c0f2e114f568d23820f5d388894" Name="Diagram1">
+        <EntityTypeShape EntityType="DetroitModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="DetroitModel.FK_Review_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="DetroitModel.Landmark_Review" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
