@@ -43,13 +43,6 @@ namespace KnowDetroit.Controllers
             return View();
         }
 
-        public ActionResult GetMap(string latitude, string longitude)
-        {
-            string image = $"https://image.maps.cit.api.here.com/mia/1.6/mapview?c={latitude}%2C{longitude}&z=14&app_id=8OqfRkeQ31Pfn1gfN1CJ&app_code=iaoGxpIIRFQ8aD-Lud4ZOQ";
-            ViewBag.Map = image;
-            return RedirectToAction("LandmarkView");
-        }
-
         public JsonResult SearchLandmarkBySiteName(string SiteName)
         {
             //ORM

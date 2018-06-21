@@ -7,10 +7,10 @@
       <Diagram DiagramId="833e75b6f95844f3963dc9bc9e930994" Name="Diagram1">
         <EntityTypeShape EntityType="DetroitModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <AssociationConnector Association="DetroitModel.FK_Review_AspNetUsers" ManuallyRouted="false" />
-        <AssociationConnector Association="DetroitModel.Landmark_Review" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="3" PointY="3.25" />
+        <AssociationConnector Association="DetroitModel.FK_Review_AspNetUsers" />
+        <AssociationConnector Association="DetroitModel.Landmark_Review" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

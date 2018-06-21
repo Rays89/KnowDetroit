@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DetroitModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DetroitModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetUsers">
           <Key>
             <PropertyRef Name="Id" />
@@ -45,6 +45,7 @@
           <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="ReviewNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Rating" Type="int" Nullable="false" />
+          <Property Name="imageURL" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <Association Name="FK_Review_AspNetUsers">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
@@ -83,8 +84,7 @@
             <End Role="Review" EntitySet="Review" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DetroitModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -105,7 +105,7 @@
           <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
           <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_AspNetUsers" FromRole="AspNetUsers" ToRole="Review" />
+          <NavigationProperty Name="Reviews" Relationship="DetroitModel.FK_Review_AspNetUsers" FromRole="AspNetUser" ToRole="Review" />
         </EntityType>
         <EntityType Name="Landmark">
           <Key>
@@ -118,26 +118,40 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Rating" Type="Int32" />
           <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Reviews" Relationship="Self.Landmark_Review" FromRole="Landmark" ToRole="Review" />
+          <NavigationProperty Name="Reviews" Relationship="DetroitModel.Landmark_Review" FromRole="Landmark" ToRole="Review" />
         </EntityType>
+        <EntityContainer Name="DetroitEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Landmarks" EntityType="Self.Landmark" />
+          <EntitySet Name="Reviews" EntityType="DetroitModel.Review" />
+          <AssociationSet Name="FK_Review_AspNetUsers" Association="DetroitModel.FK_Review_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="Review" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="Landmark_Review" Association="DetroitModel.Landmark_Review">
+            <End Role="Landmark" EntitySet="Landmarks" />
+            <End Role="Review" EntitySet="Reviews" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Review">
           <Key>
             <PropertyRef Name="ReviewNumber" />
           </Key>
-          <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Recommended" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SiteName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Recommended" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="Review1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ReviewNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rating" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Review_AspNetUsers" FromRole="Review" ToRole="AspNetUsers" />
-          <NavigationProperty Name="Landmark" Relationship="Self.Landmark_Review" FromRole="Review" ToRole="Landmark" />
+          <Property Name="imageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="DetroitModel.FK_Review_AspNetUsers" FromRole="Review" ToRole="AspNetUser" />
+          <NavigationProperty Name="Landmark" Relationship="DetroitModel.Landmark_Review" FromRole="Review" ToRole="Landmark" />
         </EntityType>
         <Association Name="FK_Review_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
-          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <End Type="DetroitModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="DetroitModel.Review" Role="Review" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AspNetUsers">
+            <Principal Role="AspNetUser">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Review">
@@ -146,8 +160,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Landmark_Review">
-          <End Role="Landmark" Type="Self.Landmark" Multiplicity="1" />
-          <End Role="Review" Type="Self.Review" Multiplicity="*" />
+          <End Type="DetroitModel.Landmark" Role="Landmark" Multiplicity="1" />
+          <End Type="DetroitModel.Review" Role="Review" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Landmark">
               <PropertyRef Name="SiteName" />
@@ -157,19 +171,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DetroitEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-          <EntitySet Name="Landmarks" EntityType="Self.Landmark" />
-          <EntitySet Name="Reviews" EntityType="Self.Review" />
-          <AssociationSet Name="FK_Review_AspNetUsers" Association="Self.FK_Review_AspNetUsers">
-            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-            <End Role="Review" EntitySet="Reviews" />
-          </AssociationSet>
-          <AssociationSet Name="Landmark_Review" Association="Self.Landmark_Review">
-            <End Role="Landmark" EntitySet="Landmarks" />
-            <End Role="Review" EntitySet="Reviews" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -211,12 +212,13 @@
           <EntitySetMapping Name="Reviews">
             <EntityTypeMapping TypeName="DetroitModel.Review">
               <MappingFragment StoreEntitySet="Review">
-                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
-                <ScalarProperty Name="Recommended" ColumnName="Recommended" />
-                <ScalarProperty Name="Review1" ColumnName="Review" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="ReviewNumber" ColumnName="ReviewNumber" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="ReviewNumber" ColumnName="ReviewNumber" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Review1" ColumnName="Review" />
+                <ScalarProperty Name="Recommended" ColumnName="Recommended" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
