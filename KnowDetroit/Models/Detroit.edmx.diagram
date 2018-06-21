@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="833e75b6f95844f3963dc9bc9e930994" Name="Diagram1">
-        <EntityTypeShape EntityType="DetroitModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="3" PointY="3.25" />
+        <EntityTypeShape EntityType="DetroitModel.AspNetUser" Width="1.5" PointX="0.75" PointY="1" />
+        <EntityTypeShape EntityType="DetroitModel.Landmark" Width="1.5" PointX="0.75" PointY="5.625" />
+        <EntityTypeShape EntityType="DetroitModel.Review" Width="1.5" PointX="3" PointY="1.5" />
         <AssociationConnector Association="DetroitModel.FK_Review_AspNetUsers" />
         <AssociationConnector Association="DetroitModel.Landmark_Review" />
-        </Diagram>
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
