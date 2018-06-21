@@ -3,16 +3,11 @@
     ViewBag.Title = "LandmarkView";
 }
 <h2>@ViewBag.Found.SiteName</h2>
-
-
     
 <img src="https://image.maps.api.here.com/mia/1.6/mapview?c=@ViewBag.Found.Latitude,@ViewBag.Found.Longitude&z=16&w=300&h=300&app_id=NyWEeujT8PLJTtEbZkW4&app_code=UdwQrkrFpr9XQvgWW0xGEQ"/>
-        <img src=@ViewBag.Found.image height="300" width="300" />
+<img src=@ViewBag.Found.image height="300" width="300" />
 
-    <p>@ViewBag.Found.Description</p>
-    <p>@ViewBag.Found.Address</p>
-    <p>@ViewBag.Found.Rating</p>
+<p>@ViewBag.Found.Description</p>
+<p>@ViewBag.Found.Address</p>
 
-    <form action="/Home/ReviewForm?SiteName=@ViewBag.Found.SiteName">
-        <input type="submit" value="Click here to Rate/Review!" />
-    </form>
+<a href="/Home/ReviewForm?SiteName=@ViewBag.Found.SiteName" class="btn btn-default">Click Here to Rate/Review</a>

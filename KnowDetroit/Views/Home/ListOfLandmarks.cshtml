@@ -75,7 +75,14 @@ Search <form action="/Home/SearchLandmarkBySiteName">
             <td><img src="@item.image" /></td>
             <td><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></td>
             <td>@item.Address</td>
-            <td>@item.Rating</td>
+            @if (item.Reviews.Count > 0)
+            {
+                <td>@(item.Rating/(double)item.Reviews.Count)</td>
+            }
+            else
+            {
+                <td></td>
+            }
 
 
         </tr>

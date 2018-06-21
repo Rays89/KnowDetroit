@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using KnowDetroit.Models;
+using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 
 namespace KnowDetroit.Controllers
 {
@@ -34,12 +36,18 @@ namespace KnowDetroit.Controllers
             DetroitEntities ORM = new DetroitEntities();
             ViewBag.Landmark = ORM.Landmarks.ToList();
             return View();
+            
         }
         public ActionResult LandmarkView(string SiteName)
         {
             DetroitEntities ORM = new DetroitEntities();
             Landmark Found = ORM.Landmarks.Find(SiteName);
             ViewBag.Found = Found;
+            ViewBag.Reviews = Found.Reviews;
+            //if (Found.Reviews.Count > 0)
+            //{
+            //    ViewBag.Rating = CalculateRating(SiteName);
+            //}
             return View();
         }
 
@@ -66,30 +74,35 @@ namespace KnowDetroit.Controllers
 
         public ActionResult ReviewForm(string SiteName)
         {
-            DetroitEntities ORM = new DetroitEntities();
-            ViewBag.Found = ORM.Reviews.Find(SiteName);
-                return View();
+            ViewBag.SiteName = SiteName;
+            return View();
         }
 
         public ActionResult AddNewRating(Review userReview)
         {
             DetroitEntities ORM = new DetroitEntities();
-            
-            ORM.Reviews.Add(userReview);
 
-            
+            userReview.UserID = User.Identity.GetUserId();
+            ORM.Reviews.Add(userReview);
+            Landmark reviewed = ORM.Landmarks.Find(userReview.SiteName);
+            reviewed.Rating += userReview.Rating;
+
+            ORM.Entry(reviewed).State = EntityState.Modified;
             ORM.SaveChanges();
-            ViewBag.RatingList = ORM.Reviews.ToList();
-            return RedirectToAction("LandmarkView");
+            //ViewBag.RatingList = ORM.Reviews.ToList();
+            return RedirectToAction("ListOfLandmarks");
 
         }
-        //public ActionResult CalculateRating(int newRating)
+        //public double CalculateRating(string SiteName)
         //{
 
         //    DetroitEntities ORM = new DetroitEntities();
-
-        //    List<int> RatingList = new List<int>();
-
+        //    List<int> RatingList = ORM.Reviews.Where(c => c.SiteName == SiteName).Select(c => c.Rating).ToList();
+        //    double finalRating = (double)RatingList.Sum() / RatingList.Count();
+            
+        //    return finalRating;
+            
+            
 
         //}
     }

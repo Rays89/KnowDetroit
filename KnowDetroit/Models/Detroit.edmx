@@ -42,13 +42,13 @@
           <Property Name="SiteName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Recommended" Type="nvarchar" MaxLength="5" Nullable="false" />
           <Property Name="Review" Type="nvarchar(max)" />
-          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" />
           <Property Name="ReviewNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Rating" Type="int" Nullable="false" />
           <Property Name="imageURL" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <Association Name="FK_Review_AspNetUsers">
-          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
           <End Role="Review" Type="Self.Review" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUsers">
@@ -140,7 +140,7 @@
           <Property Name="SiteName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Recommended" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="Review1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="ReviewNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rating" Type="Int32" Nullable="false" />
           <Property Name="imageURL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
@@ -148,7 +148,7 @@
           <NavigationProperty Name="Landmark" Relationship="DetroitModel.Landmark_Review" FromRole="Review" ToRole="Landmark" />
         </EntityType>
         <Association Name="FK_Review_AspNetUsers">
-          <End Type="DetroitModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="DetroitModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
           <End Type="DetroitModel.Review" Role="Review" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AspNetUser">
