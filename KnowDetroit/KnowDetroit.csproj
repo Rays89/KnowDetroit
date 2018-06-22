@@ -258,6 +258,7 @@
     <Content Include="Models\Detroit.edmx.diagram">
       <DependentUpon>Detroit.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Tourpdf\walkingtour.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
