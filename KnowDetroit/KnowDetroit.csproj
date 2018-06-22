@@ -310,6 +310,8 @@
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Home\ShowUserReviews.cshtml" />
+    <Content Include="Views\Home\ListReviews.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

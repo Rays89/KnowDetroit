@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "ShowUserReviews";
+}
+
+<h2>ShowUserReviews</h2>
+
+<table class="table">
+    @foreach (var c in ViewBag.UserReviews)
+    {
+        <tr>
+            <td>@c.ReviewNumber</td>
+            <td>@c.Review1</td>
+            <td>
+                <a href="/Home/DeleteReview?ReviewNumber=@c.ReviewNumber" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">
+                    <span class="glyphicon glyphicon-trash"></span>Delete
+                </a>
+            </td>
+
+            <td><a href="/Home/ListReviews">Reviews</a></td>
+            <td><a href="/Home/ListOfLandMarks">LandMarks</a></td>
+
+        </tr>
+    }
+    </table>

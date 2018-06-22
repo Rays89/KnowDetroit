@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "ListReviews";
+}
+
+<h2>ListReviews</h2>
+
+<table class="table">
+    @foreach (var c in ViewBag.Review)
+    {
+        <tr>
+            <td>@c.ReviewNumber</td>
+            <td>@c.SiteName</td>
+            <td>@c.Review1</td>
+            <td>@c.Recommended</td>
+            <td>@c.Rating</td>
+        </tr>
+    }
+</table>
+<a href="/Home/ShowUserReviews">Your Reviews</a>
+

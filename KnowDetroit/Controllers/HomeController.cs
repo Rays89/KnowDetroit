@@ -38,7 +38,7 @@ namespace KnowDetroit.Controllers
             DetroitEntities ORM = new DetroitEntities();
             ViewBag.Landmark = ORM.Landmarks.ToList();
             return View();
-            
+
         }
         public ActionResult LandmarkView(string SiteName)
         {
@@ -113,19 +113,73 @@ namespace KnowDetroit.Controllers
        ConfigurationManager.AppSettings.Get("Cloudinary-Secret"));
 
             Cloudinary cloudinary = new Cloudinary(account);
-
-            var uploadParams = new ImageUploadParams()
+            if (upload != null)
             {
-                File = new FileDescription(upload.FileName, upload.InputStream)
-            };
+                var uploadParams = new ImageUploadParams()
+                {
+                    File = new FileDescription(upload.FileName, upload.InputStream)
+                };
 
 
-            var uploadResult = cloudinary.Upload(uploadParams);
+                var uploadResult = cloudinary.Upload(uploadParams);
 
-            JObject JsonData = (JObject)uploadResult.JsonObj;
-            ViewBag.uploadResult = JsonData;
-            return JsonData["url"].ToString();
+                JObject JsonData = (JObject)uploadResult.JsonObj;
+                ViewBag.uploadResult = JsonData;
+                return JsonData["url"].ToString();
+            }
+            else
+                return null;
 
+        }
+        public ActionResult ShowUserReviews(string UserID)
+        {
+            //1 ORM
+            DetroitEntities ORM = new DetroitEntities();
+
+            //2 Locate order to delete or edit
+            List<Review> UserReviews = ORM.Reviews.Where(x => x.UserID == UserID).ToList();
+            //3 Show item
+            ViewBag.UserReviews = UserReviews;
+            return View();
+
+        }
+        public ActionResult DeleteReview(string ReviewNumber)
+        {
+            //1 ORM
+            DetroitEntities ORM = new DetroitEntities();
+
+            DbContextTransaction DeleteTransaction = ORM.Database.BeginTransaction();
+
+            //2 Locate review to delete
+            Review Found = ORM.Reviews.Find(ReviewNumber);
+            //3 Remove review
+            if (Found != null)
+            {
+                try
+                {
+                    ORM.Reviews.Remove(Found);
+                    //4 Save to database
+                    ORM.SaveChanges();
+                    DeleteTransaction.Commit();
+                    return RedirectToAction("ListUserReviews");
+                }
+                catch (Exception ex)
+                {
+                    DeleteTransaction.Rollback();
+                    return View("Error");
+                }
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Customer Not Found";
+                return View("Error");
+            }
+        }
+        public ActionResult ListReviews()
+        {
+            DetroitEntities ORM = new DetroitEntities();
+            ViewBag.Review = ORM.Reviews.ToList();
+            return View();
         }
         //public double CalculateRating(string SiteName)
         //{
@@ -140,4 +194,6 @@ namespace KnowDetroit.Controllers
 
         //}
     }
+        
+    
 }
