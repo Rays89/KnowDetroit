@@ -6,26 +6,28 @@
 
 <h2>Review</h2>
 <h3>@ViewBag.SiteName</h3>
-<form action="/Home/AddNewRating" method="post" enctype="multipart/form-data" >
+<form action="/Home/AddNewRating" method="post" enctype="multipart/form-data">
     SiteName:<input type="text" value=@ViewBag.SiteName name="SiteName" hidden /><br />
     Recommended: <select name="Recommended">
         <option value="Yes">Yes</option>
-        <option value="No">No</option>    
-    </select><br/>
+        <option value="No">No</option>
+    </select><br />
     Rating:<select name="Rating">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select> <br />
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select> <br />
+
     Review: <input type="text" name="Review1" />
     <br />
-    <input type="submit" value="Rate"><input type="file" name="upload" value="UPLOAD" />
+    <input type="file" name="upload" value="UPLOAD" /><br/>
+    <input type="submit" value="Rate">
 </form>
 

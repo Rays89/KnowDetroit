@@ -12,7 +12,7 @@ using System.Configuration;
 using Newtonsoft.Json.Linq;
 
 namespace KnowDetroit.Controllers
-{
+{[Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
