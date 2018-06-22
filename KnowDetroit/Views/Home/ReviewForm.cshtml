@@ -3,24 +3,15 @@
     ViewBag.Title = "ReviewForm";
 }
 
-<<<<<<< HEAD
-<h2>ReviewForm</h2>
 
-<form action="/Home/AddNewRating" method="post" enctype="multipart/form-data">
-    SiteName: <input type="text" name="SiteName" value="@ViewBag.SiteName" readonly /><br />
-    Recommended: <input type="text" name="Recommended" /><br />
-    Rating: <input type="text" name="Rating" /><br />
-    Review: <input type="text" name="Review1" /><br />
-    <input type="file" name="upload" value="UPLOAD" />
-=======
 <h2>Review</h2>
 <h3>@ViewBag.SiteName</h3>
-<form action="/Home/AddNewRating" method="post">
+<form action="/Home/AddNewRating" method="post" enctype="multipart/form-data" >
     SiteName:<input type="text" value=@ViewBag.SiteName name="SiteName" hidden /><br />
     Recommended: <select name="Recommended">
         <option value="Yes">Yes</option>
-        <option value="No">No</option>
-    </select> <br />
+        <option value="No">No</option>    
+    </select><br/>
     Rating:<select name="Rating">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -33,13 +24,8 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select> <br />
+    Review: <input type="text" name="Review1" />
     <br />
-    Review:
-    <input type="text" name="Review1" />
-    <br />
-
->>>>>>> review form update
-    <input type="submit" value="Rate">
-
+    <input type="submit" value="Rate"><input type="file" name="upload" value="UPLOAD" />
 </form>
 
