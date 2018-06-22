@@ -8,6 +8,8 @@ using CloudinaryDotNet.Actions;
 using KnowDetroit.Models;
 using Microsoft.AspNet.Identity;
 using System.Data.Entity;
+using System.Configuration;
+using Newtonsoft.Json.Linq;
 
 namespace KnowDetroit.Controllers
 {
@@ -86,19 +88,43 @@ namespace KnowDetroit.Controllers
             return View();
         }
 
-        public ActionResult AddNewRating(Review userReview)
+        public ActionResult AddNewRating(Review userReview, HttpPostedFileBase upload)
         {
             DetroitEntities ORM = new DetroitEntities();
 
             userReview.UserID = User.Identity.GetUserId();
+            userReview.imageURL = UploadImage(upload);
             ORM.Reviews.Add(userReview);
             Landmark reviewed = ORM.Landmarks.Find(userReview.SiteName);
             reviewed.Rating += userReview.Rating;
+
 
             ORM.Entry(reviewed).State = EntityState.Modified;
             ORM.SaveChanges();
             //ViewBag.RatingList = ORM.Reviews.ToList();
             return RedirectToAction("ListOfLandmarks");
+
+        }
+        public string UploadImage(HttpPostedFileBase upload)
+        {
+            Account account = new Account(
+                ConfigurationManager.AppSettings.Get("Cloudinary-Name"),
+       ConfigurationManager.AppSettings.Get("Cloudinary-Key"),
+       ConfigurationManager.AppSettings.Get("Cloudinary-Secret"));
+
+            Cloudinary cloudinary = new Cloudinary(account);
+
+            var uploadParams = new ImageUploadParams()
+            {
+                File = new FileDescription(upload.FileName, upload.InputStream)
+            };
+
+
+            var uploadResult = cloudinary.Upload(uploadParams);
+
+            JObject JsonData = (JObject)uploadResult.JsonObj;
+            ViewBag.uploadResult = JsonData;
+            return JsonData["url"].ToString();
 
         }
         //public double CalculateRating(string SiteName)
@@ -107,10 +133,10 @@ namespace KnowDetroit.Controllers
         //    DetroitEntities ORM = new DetroitEntities();
         //    List<int> RatingList = ORM.Reviews.Where(c => c.SiteName == SiteName).Select(c => c.Rating).ToList();
         //    double finalRating = (double)RatingList.Sum() / RatingList.Count();
-            
+
         //    return finalRating;
-            
-            
+
+
 
         //}
     }
