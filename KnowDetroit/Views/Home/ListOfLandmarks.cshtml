@@ -55,6 +55,7 @@
         });
     });
 </script>
+<<<<<<< HEAD
 <table id="searchResults" class="table"></table>
 <a href="/Home/HighlyRatedLandmark">Top 3 User Rated</a><br/>
 
@@ -80,19 +81,31 @@
             <td><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></td>
             
             <td>@item.Address</td>
+=======
+<div class="panel-collapse">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap;">
+        
+        @foreach (var item in ViewBag.Landmark)
+        {
+        <div class="col-md-4 col-xs-2">
+            <img src="@item.image" /><br/>
+            <h4><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></h4>
+            <h5>@item.Address</h5>
+>>>>>>> Landmark list
             @if (item.Reviews.Count > 0)
             {
-                <td>@(item.Rating/(double)item.Reviews.Count)</td>
+                <h5>Rating: @(item.Rating / (double)item.Reviews.Count)</h5>
             }
             else
             {
-                <td></td>
+                <h5></h5>
             }
+            <br/>
+
+            </div>
+        }
 
 
-        </tr>
-    }
-
-
-</table>
+        </div>
+    </div>
 
