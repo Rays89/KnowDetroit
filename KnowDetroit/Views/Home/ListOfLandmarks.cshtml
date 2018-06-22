@@ -3,16 +3,22 @@
     ViewBag.Title = "ListOfLandmarks";
 }
 <br />
+    @*<select name="sortOption">
+        <option value="1">A-Z</option>
+        <option value="2">Popularity</option>
+        <option value="Rating">Rating</option>
 
-<select>
-    <option>A-Z</option>
-    <option>Popularity</option>
-    <option>Rating</option>
-</select>
-<br />
-Search <form action="/Home/SearchLandmarkBySiteName">
-    <input type="text" name="SiteName" id="SiteName" />
+    </select>*@
+<form action="/Home/SortByRating" method="post">
+    <input type="submit" value="sort" />
 </form>
+<br />
+
+<form action="/Home/SearchLandmarkBySiteName" method="post">
+    Search By Name: <input type="text" name="SiteName" id="SiteName" />
+    <input type="submit" value="search" />
+</form>
+
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">

@@ -51,25 +51,33 @@ namespace KnowDetroit.Controllers
             return View();
         }
 
-        public JsonResult SearchLandmarkBySiteName(string SiteName)
+        public ActionResult SearchLandmarkBySiteName(string SiteName)
         {
-            //ORM
             DetroitEntities ORM = new DetroitEntities();
+            ViewBag.Landmark = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
 
-            //search by sitename
-            List<Landmark> Result = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
-
-            //return data as Json
-            return Json(Result);
+            return View("ListOfLandmarks");
         }
-        public ActionResult SortByAlphabeticalOrder()
+
+        //public JsonResult SearchLandmarkBySiteName(string SiteName)
+        //{
+        //    //ORM
+        //    DetroitEntities ORM = new DetroitEntities();
+
+        //    //search by sitename
+        //    List<Landmark> Result = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
+
+        //    //return data as Json
+        //    return Json(Result);
+        //}
+        public ActionResult SortByRating()
         {
             DetroitEntities ORM = new DetroitEntities();
             //List<Landmark> Result = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList().OrderBy(Landmarks.SiteName);
             // return ORM.Landmarks.Find(SiteName).orderByDescending(c => c.SiteName).Tolist()[0];
-            List<Landmark> LandmarkList = ORM.Landmarks.OrderByDescending(c => c.SiteName).ToList();
-            ViewBag.AlphabeticalList = LandmarkList;
-            return View();
+            List<Landmark> LandmarkList = ORM.Landmarks.OrderBy(c => c.SiteName).ToList();
+            ViewBag.Landmark = ORM.Landmarks.OrderByDescending(x => (x.Rating / x.Reviews.Count)).ToList();
+            return View("ListOfLandmark");
         }
 
         public ActionResult ReviewForm(string SiteName)
