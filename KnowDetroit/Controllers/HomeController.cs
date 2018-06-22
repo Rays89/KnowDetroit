@@ -185,6 +185,11 @@ namespace KnowDetroit.Controllers
         {
             return View();
         }
+
+        public ActionResult HighlyRatedLandmark()
+        {
+            return View();
+        }
         //public double CalculateRating(string SiteName)
         //{
 

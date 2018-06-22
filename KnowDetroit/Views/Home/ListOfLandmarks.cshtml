@@ -57,6 +57,8 @@
 </script>
 <table id="searchResults" class="table"></table>
 
+<li><a href="/Home/HighlyRated">Highly Rated Landmark</a></li>
+
 <table class="table">
     <tr>
         <th>
@@ -77,6 +79,7 @@
         <tr>
             <td><img src="@item.image" /></td>
             <td><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></td>
+            
             <td>@item.Address</td>
             @if (item.Reviews.Count > 0)
             {
