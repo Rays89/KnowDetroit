@@ -312,6 +312,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Home\ShowUserReviews.cshtml" />
     <Content Include="Views\Home\ListReviews.cshtml" />
+    <Content Include="Views\Home\WalkingTour.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

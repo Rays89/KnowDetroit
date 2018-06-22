@@ -131,19 +131,19 @@ namespace KnowDetroit.Controllers
                 return null;
 
         }
-        public ActionResult ShowUserReviews(string UserID)
+        public ActionResult ShowUserReviews()
         {
             //1 ORM
             DetroitEntities ORM = new DetroitEntities();
-
+            string currentUser = User.Identity.GetUserId();
             //2 Locate order to delete or edit
-            List<Review> UserReviews = ORM.Reviews.Where(x => x.UserID == UserID).ToList();
+            List<Review> UserReviews = ORM.AspNetUsers.Find(currentUser).Reviews.ToList();
             //3 Show item
             ViewBag.UserReviews = UserReviews;
             return View();
 
         }
-        public ActionResult DeleteReview(string ReviewNumber)
+        public ActionResult DeleteReview(int ReviewNumber)
         {
             //1 ORM
             DetroitEntities ORM = new DetroitEntities();
@@ -161,7 +161,7 @@ namespace KnowDetroit.Controllers
                     //4 Save to database
                     ORM.SaveChanges();
                     DeleteTransaction.Commit();
-                    return RedirectToAction("ListUserReviews");
+                    return RedirectToAction("ListReviews");
                 }
                 catch (Exception ex)
                 {
@@ -179,6 +179,10 @@ namespace KnowDetroit.Controllers
         {
             DetroitEntities ORM = new DetroitEntities();
             ViewBag.Review = ORM.Reviews.ToList();
+            return View();
+        }
+        public ActionResult WalkingTour()
+        {
             return View();
         }
         //public double CalculateRating(string SiteName)
