@@ -2,8 +2,13 @@
 @{
     ViewBag.Title = "ListOfLandmarks";
 }
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/c_scale,w_1300/v1529501303/Detroit/Detroit.jpg);
+    }
+</style>
 <br />
-    @*<select name="sortOption">
+@*<select name="sortOption">
         <option value="1">A-Z</option>
         <option value="2">Popularity</option>
         <option value="Rating">Rating</option>
@@ -17,9 +22,9 @@
 <form action="/Home/SearchLandmarkBySiteName" method="post">
     Search By Name: <input type="text" name="SiteName" id="SiteName" />
     <input type="submit" value="search" />
-</form>
+</form><br />
 
-<a href="/Home/ListReviews">See All Reviews</a>
+<a href="/Home/ListReviews">See All Reviews</a><br />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {
@@ -55,32 +60,35 @@
         });
     });
 </script>
+display: flex;
+  height: 200px;
+  align-items: center;
 
-<a href="/Home/HighlyRatedLandmark">Top 3 User Rated</a><br/>
+<a href="/Home/HighlyRatedLandmark">Top 3 User Rated</a><br />
 
 <div class="panel-collapse">
-    <div class="panel-primary" style="display: flex; flex-wrap: wrap;">
-        
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; height:330px; align-items: center; background-color:red">
+
         @foreach (var item in ViewBag.Landmark)
         {
-        <div class="col-md-4 col-xs-2">
-            <img src="@item.image" /><br/>
-            <h4><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></h4>
-            <h5>@item.Address</h5>
-            @if (item.Reviews.Count > 0)
-            {
-                <h5>Rating: @Math.Round((item.Rating / (double)item.Reviews.Count),1)</h5>
-            }
-            else
-            {
-                <h5></h5>
-            }
-            <br/>
+            <div class="col-md-4 col-xs-2">
+                <img src="@item.image" /><br />
+                <h4><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></h4>
+                <h5>@item.Address</h5>
+                @if (item.Reviews.Count > 0)
+                {
+                    <h5>Rating: @Math.Round((item.Rating / (double)item.Reviews.Count), 1)</h5>
+                }
+                else
+                {
+                    <h5></h5>
+                }
+                <br />
 
             </div>
         }
 
 
-        </div>
     </div>
+</div>
 
