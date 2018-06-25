@@ -46,10 +46,7 @@ namespace KnowDetroit.Controllers
             Landmark Found = ORM.Landmarks.Find(SiteName);
             ViewBag.Found = Found;
             ViewBag.Reviews = Found.Reviews;
-            //if (Found.Reviews.Count > 0)
-            //{
-            //    ViewBag.Rating = CalculateRating(SiteName);
-            //}
+           
             return View();
         }
 
@@ -61,17 +58,7 @@ namespace KnowDetroit.Controllers
             return View("ListOfLandmarks");
         } 
 
-        //public JsonResult SearchLandmarkBySiteName(string SiteName)
-        //{
-        //    //ORM
-        //    DetroitEntities ORM = new DetroitEntities();
-
-        //    //search by sitename
-        //    List<Landmark> Result = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
-
-        //    //return data as Json
-        //    return Json(Result);
-        //}
+       
         public ActionResult SortOptions(string sortOption)
         {
             DetroitEntities ORM = new DetroitEntities();
@@ -117,7 +104,6 @@ namespace KnowDetroit.Controllers
 
             ORM.Entry(reviewed).State = EntityState.Modified;
             ORM.SaveChanges();
-            //ViewBag.RatingList = ORM.Reviews.ToList();
             return RedirectToAction("ListOfLandmarks");
 
         }
@@ -216,18 +202,6 @@ namespace KnowDetroit.Controllers
             return View();
         }
 
-        //public double CalculateRating(string SiteName)
-        //{
-
-        //    DetroitEntities ORM = new DetroitEntities();
-        //    List<int> RatingList = ORM.Reviews.Where(c => c.SiteName == SiteName).Select(c => c.Rating).ToList();
-        //    double finalRating = (double)RatingList.Sum() / RatingList.Count();
-
-        //    return finalRating;Review reviewList = ORM.Landmarks.Find(userReview.SiteName)Review reviewList = ORM.Landmarks.Find(userReview.SiteName)
-
-
-
-        //}
     }
 
 

@@ -8,41 +8,25 @@
     }
 </style>
 <br />
-<<<<<<< HEAD
 
-<form action="/Home/SortByRating" method="post">
-    <input type="submit" value="Sort By" />
-</form>
 
 <form action="/Home/SortOptions" method="post">
-    <select name="sortOption">
+    Search By: <select name="sortOption">
         <option value="0" selected></option>
         <option value="1">Rating</option>
         <option value="2">Popularity</option>
     </select>
-    <input type="submit" value="Sort By" />
+    <input type="submit" value="Search" />
 </form>
 
 
 <br />
-=======
-<form action="/Home/SearchLandmarkBySiteName" method="post">
-    Sort By:<select name="SortByRating">
-        <option value="/Home/SortByPopularity">Popularity</option>
-        <option value="/Home/SortByRating">Rating</option>
-        <input type="submit" value="Sort" />
-        @*<option value="1">A-Z</option>*@
-        @*<option href="/Home/SortByPopularity">Popularity</option>
-            <option href="/Home/SortByRating">Rating</option>*@
-    </select>
-    </form>
->>>>>>> feature update
 
     <br />
 
     <form action="/Home/SearchLandmarkBySiteName" method="post">
         Search By Name: <input type="text" name="SiteName" id="SiteName" />
-        <input type="submit" value="search" />
+        <input type="submit" value="Search" />
     </form><br />
 
     <a href="/Home/ListReviews">See All Reviews</a><br />
