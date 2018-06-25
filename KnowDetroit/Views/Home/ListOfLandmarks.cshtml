@@ -62,14 +62,11 @@
         });
     });
 </script>
-display: flex;
-  height: 200px;
-  align-items: center;
 
 <a href="/Home/HighlyRatedLandmark">Top 3 User Rated</a><br />
 
 <div class="panel-collapse">
-    <div class="panel-primary" style="display: flex; flex-wrap: wrap; height:330px; align-items: center; background-color:red">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; background-color:red; padding-top:50px; padding-left:50px">
 
         @foreach (var item in ViewBag.Landmark)
         {
