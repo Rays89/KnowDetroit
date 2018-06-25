@@ -55,15 +55,8 @@
         });
     });
 </script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<table id="searchResults" class="table"></table>
+
 <a href="/Home/HighlyRatedLandmark">Top 3 User Rated</a><br/>
-=======
-
->>>>>>> Views
-
-<li><a href="/Home/HighlyRated">Highly Rated Landmark</a></li>
 
 <div class="panel-collapse">
     <div class="panel-primary" style="display: flex; flex-wrap: wrap;">
@@ -76,7 +69,7 @@
             <h5>@item.Address</h5>
             @if (item.Reviews.Count > 0)
             {
-                <h5>Rating: @(item.Rating / (double)item.Reviews.Count)</h5>
+                <h5>Rating: @Math.Round((item.Rating / (double)item.Reviews.Count),1)</h5>
             }
             else
             {
