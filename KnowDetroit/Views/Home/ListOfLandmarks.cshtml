@@ -13,13 +13,16 @@
     <input type="submit" value="Sort By" />
 </form>
 
+<form action="/Home/SortOptions" method="post">
     <select name="sortOption">
-        @*<option value="1">A-Z</option>*@
-        <option href ="/Home/SortByPopularity">Popularity</option>
-        <option href ="/Home/SortByRating">Rating</option>
-       
+        <option value="0" selected></option>
+        <option value="1">Rating</option>
+        <option value="2">Popularity</option>
     </select>
-   
+    <input type="submit" value="Sort By" />
+</form>
+
+
 <br />
 
 <form action="/Home/SearchLandmarkBySiteName" method="post">
