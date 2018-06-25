@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "ShowUserPhotos";
+}
+<table class="table">
+    @foreach (var c in ViewBag.UserPhotos)
+    {
+        <tr>
+            <td><img src="@c.imageURL" /></td>
+        </tr>
+    }
+</table>

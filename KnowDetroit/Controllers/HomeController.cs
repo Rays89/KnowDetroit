@@ -196,7 +196,7 @@ namespace KnowDetroit.Controllers
         public ActionResult ShowUserPhotos(string SiteName)
         {
             DetroitEntities ORM = new DetroitEntities();
-
+            ViewBag.UserPhotos = ORM.Reviews.Where(c => c.SiteName.Contains(SiteName)).ToList();
             return View();
         }
         //public double CalculateRating(string SiteName)
@@ -206,12 +206,12 @@ namespace KnowDetroit.Controllers
         //    List<int> RatingList = ORM.Reviews.Where(c => c.SiteName == SiteName).Select(c => c.Rating).ToList();
         //    double finalRating = (double)RatingList.Sum() / RatingList.Count();
 
-        //    return finalRating;
+        //    return finalRating;Review reviewList = ORM.Landmarks.Find(userReview.SiteName)Review reviewList = ORM.Landmarks.Find(userReview.SiteName)
 
 
 
         //}
     }
-        
-    
+
+
 }
