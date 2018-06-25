@@ -22,14 +22,14 @@ namespace KnowDetroit.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = " Description page.";
+            ViewBag.Message = " Get to KnowDetroit. ";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Our contact page.";
+            ViewBag.Message = "Contact Page.";
 
             return View();
         }
@@ -59,7 +59,7 @@ namespace KnowDetroit.Controllers
             ViewBag.Landmark = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
 
             return View("ListOfLandmarks");
-        }
+        } 
 
         //public JsonResult SearchLandmarkBySiteName(string SiteName)
         //{
@@ -77,9 +77,16 @@ namespace KnowDetroit.Controllers
             DetroitEntities ORM = new DetroitEntities();
             //List<Landmark> Result = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList().OrderBy(Landmarks.SiteName);
             // return ORM.Landmarks.Find(SiteName).orderByDescending(c => c.SiteName).Tolist()[0];
-            List<Landmark> LandmarkList = ORM.Landmarks.OrderBy(c => c.SiteName).ToList();
-            ViewBag.Landmark = ORM.Landmarks.OrderByDescending(x => (x.Rating / x.Reviews.Count)).ToList();
-            return View("ListOfLandmark");
+            //List<Landmark> LandmarkList = ORM.Landmarks.OrderBy(c => c.SiteName).ToList();
+            List<Landmark> landmarkList = ORM.Landmarks.Where(x => x.Reviews.Count > 0).OrderByDescending(x => ((double)x.Rating / x.Reviews.Count)).ToList();
+            List<Landmark> unreviewed = ORM.Landmarks.Where(x => x.Reviews.Count == 0).ToList();
+            foreach (Landmark landmark in unreviewed)
+            {
+                landmarkList.Add(landmark);
+            }
+
+            ViewBag.Landmark = landmarkList;
+            return View("ListOfLandmarks");
         }
 
         public ActionResult ReviewForm(string SiteName)
@@ -198,6 +205,13 @@ namespace KnowDetroit.Controllers
             DetroitEntities ORM = new DetroitEntities();
             ViewBag.UserPhotos = ORM.Reviews.Where(c => c.SiteName.Contains(SiteName)).ToList();
             return View();
+        }
+
+        public ActionResult SortByPopularity()
+        {
+            DetroitEntities ORM = new DetroitEntities();
+            ViewBag.Landmark = ORM.Landmarks.OrderByDescending(c => c.Reviews.Count).ToList();
+            return View("ListOfLandmarks");
         }
         //public double CalculateRating(string SiteName)
         //{
