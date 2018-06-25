@@ -190,6 +190,12 @@ namespace KnowDetroit.Controllers
         {
             return View();
         }
+        public ActionResult ShowUserPhotos(string SiteName)
+        {
+            DetroitEntities ORM = new DetroitEntities();
+
+            return View();
+        }
         //public double CalculateRating(string SiteName)
         //{
 
