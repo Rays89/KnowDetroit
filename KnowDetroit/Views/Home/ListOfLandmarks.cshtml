@@ -56,32 +56,15 @@
     });
 </script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <table id="searchResults" class="table"></table>
 <a href="/Home/HighlyRatedLandmark">Top 3 User Rated</a><br/>
-
-<table class="table">
-    <tr>
-        <th>
-
-        </th>
-        <th>
-            LandMark Name
-        </th>
-        <th>
-            Address
-        </th>
-        <th>
-            Rating
-        </th>
-    </tr>
-    @foreach (var item in ViewBag.Landmark)
-    {
-        <tr>
-            <td><img src="@item.image" /></td>
-            <td><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></td>
-            
-            <td>@item.Address</td>
 =======
+
+>>>>>>> Views
+
+<li><a href="/Home/HighlyRated">Highly Rated Landmark</a></li>
+
 <div class="panel-collapse">
     <div class="panel-primary" style="display: flex; flex-wrap: wrap;">
         
@@ -91,7 +74,6 @@
             <img src="@item.image" /><br/>
             <h4><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></h4>
             <h5>@item.Address</h5>
->>>>>>> Landmark list
             @if (item.Reviews.Count > 0)
             {
                 <h5>Rating: @(item.Rating / (double)item.Reviews.Count)</h5>
