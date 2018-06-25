@@ -188,7 +188,10 @@ namespace KnowDetroit.Controllers
 
         public ActionResult HighlyRatedLandmark()
         {
-            return View();
+            DetroitEntities ORM = new DetroitEntities();
+            ViewBag.Landmark = ORM.Landmarks.Where(x => x.Reviews.Count > 0).OrderByDescending(x => ((double)x.Rating / x.Reviews.Count)).Take(3).ToList();
+
+            return View("ListOfLandmarks");
         }
         public ActionResult ShowUserPhotos(string SiteName)
         {
