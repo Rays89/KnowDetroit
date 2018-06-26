@@ -13,9 +13,16 @@
     <div class="panel-primary" style="display: flex; flex-wrap: wrap; justify-content:flex-start; align-content:sp; background-color:red; padding-top:50px; padding-left:50px">
         @foreach (var c in ViewBag.UserPhotos)
         {
+            if (c.imageURL == null)
+            {
+                <h1> </h1>
+            }
+            else
+            {
         <div class="col-md-4 col-xs-2">
             <img src="@c.imageURL" />
         </div>
+            }
         }
     </div>
 </div>
