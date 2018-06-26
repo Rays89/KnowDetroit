@@ -2,11 +2,21 @@
 @{
     ViewBag.Title = "ShowUserPhotos";
 }
-<table class="table">
-    @foreach (var c in ViewBag.UserPhotos)
-    {
-        <tr>
-            <td><img src="@c.imageURL" /></td>
-        </tr>
+
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/c_scale,w_1300/v1529501303/Detroit/Detroit.jpg);
     }
-</table>
+</style>
+<br />
+<div class="panel-collapse">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; justify-content:flex-start; align-content:sp; background-color:red; padding-top:50px; padding-left:50px">
+        @foreach (var c in ViewBag.UserPhotos)
+        {
+        <div class="col-md-4 col-xs-2">
+            <img src="@c.imageURL" />
+        </div>
+        }
+    </div>
+</div>
+
