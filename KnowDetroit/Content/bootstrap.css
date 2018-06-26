@@ -311,11 +311,13 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.428571429;
-  color:#333333;
-  background-color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333;
+    background-color: #ffffff;
+    
+    
 }
 
 input,
@@ -4187,8 +4189,13 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-fixed-bottom {
-  bottom: 0;
-  margin-bottom: 0;
+    bottom: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.428571429;
+    color: darkorange;
+    text-shadow: 2px 2px darkblue;
+    margin-bottom: 10px;
 }
 
 .navbar-brand {

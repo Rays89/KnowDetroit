@@ -10,13 +10,42 @@ using Microsoft.AspNet.Identity;
 using System.Data.Entity;
 using System.Configuration;
 using Newtonsoft.Json.Linq;
+using System.Net;
+using System.IO;
 
 namespace KnowDetroit.Controllers
-{[Authorize]
+{
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
+            //Build an HTTP Request
+
+            HttpWebRequest request = WebRequest.CreateHttp("https://forecast.weather.gov/MapClick.php?lat=42.3316&lon=-83.0486&FcstType=json");
+
+            request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
+            //For secret keys
+            //request.Headers.Add("secret-key", "hdvshdvlahvlkey");
+            //Get the HTTP Response
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            //Parse the data from the HTTP Response
+            if (response.StatusCode == HttpStatusCode.OK)//200 Status Code
+            {
+                StreamReader data = new StreamReader(response.GetResponseStream());
+                //string RawData = data.ReadToEnd();
+                //Json
+                JObject WeatherData = JObject.Parse(data.ReadToEnd());
+                ViewBag.Today = WeatherData["data"]["weather"][0];
+                ViewBag.Icon = WeatherData["data"]["iconLink"][0];
+                ViewBag.Temp = WeatherData["data"]["temperature"][0];
+                ViewBag.WeatherData = WeatherData["time"]["startPeriodName"][0];
+                //ViewBag.IconWeek = WeatherData["data"]["iconLink"];
+
+
+                return View();
+            }
             return View();
         }
 

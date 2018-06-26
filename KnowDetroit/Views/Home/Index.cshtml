@@ -1,20 +1,19 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link href="~/Content/Site.css" rel="stylesheet" />
+
 <style>
     body {
         background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529949631/det.18.ss_.MDCVB_2015_141.jpg);
     }
-    #marquee {
-        font-size: 50px;
-    }
 </style>
-<marquee behavior="scroll" direction="left" id="marquee">
-    GET TO KNOW DETROIT
+<marquee behavior="scroll" direction="left" id="marquee" margin="0">
+    <span id="marquee">Get To Know DETROIT</span>   <img src="@ViewBag.Icon" /> <span id="marquee">@ViewBag.Temp @ViewBag.WeatherData  @ViewBag.Today</span>
 </marquee>
 <div class="row">
-    <div class="col-sm-pull-4">      
-            @*<h2 > Get to KnowDetroit</h2 >*@
+    <div class="col-sm-pull-4">
+        <h2> Get to KnowDetroit</h2>
     </div>
 </div>
 
@@ -24,3 +23,4 @@
     }
 </style>
     
+
