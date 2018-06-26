@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "ShowReviews";
+}
+<table class="table">
+    @foreach (var c in ViewBag.Review)
+    {
+        <tr>
+            <td>@c.UserID <br /> Recommended:@c.Recommended Rating:@c.Rating <br /> @c.Review1</td>
+
+
+        </tr>
+    }
+</table>
+

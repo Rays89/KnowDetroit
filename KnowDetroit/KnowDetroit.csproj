@@ -315,6 +315,7 @@
     <Content Include="Views\Home\ListReviews.cshtml" />
     <Content Include="Views\Home\WalkingTour.cshtml" />
     <Content Include="Views\Home\ShowUserPhotos.cshtml" />
+    <Content Include="Views\Home\ShowReviews.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

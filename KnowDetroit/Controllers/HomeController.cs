@@ -201,6 +201,12 @@ namespace KnowDetroit.Controllers
             ViewBag.UserPhotos = ORM.Reviews.Where(c => c.SiteName.Contains(SiteName)).ToList();
             return View();
         }
+        public ActionResult ShowReviews(string SiteName)
+        {
+            DetroitEntities ORM = new DetroitEntities();
+            ViewBag.Review = ORM.Reviews.Where(c => c.SiteName.Contains(SiteName)).OrderByDescending(c => c.ReviewNumber).ToList();
+            return View();
+        }
 
     }
 
