@@ -219,16 +219,21 @@ namespace KnowDetroit.Controllers
         {
             DetroitEntities ORM = new DetroitEntities();
             Review OldReview = ORM.Reviews.Find(updatedReview.ReviewNumber);
-            if (OldReview != null && ModelState.IsValid)
+            if (OldReview != null)
             {
                 //3. Update the existing customer
 
                 OldReview.Recommended = updatedReview.Recommended;
                 OldReview.Review1 = updatedReview.Review1;
-                OldReview.Rating = updatedReview.Rating;
+                if (updatedReview.Rating != OldReview.Rating)
+                {
+                    int difference = updatedReview.Rating - OldReview.Rating;
+                    ORM.Landmarks.Find(updatedReview.SiteName).Rating += difference;
+                    OldReview.Rating = updatedReview.Rating;
+                }
 
-                ORM.Entry(OldReview).State = System.Data.Entity.EntityState.Modified;
-
+                ORM.Entry(OldReview).State = EntityState.Modified;
+                ORM.Entry(ORM.Landmarks.Find(OldReview.SiteName)).State = EntityState.Modified;
                 //4. save back to the DB 
                 ORM.SaveChanges();
 
@@ -241,7 +246,6 @@ namespace KnowDetroit.Controllers
                 return View("Error");
             }
         }
-
     }
 
 

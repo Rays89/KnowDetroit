@@ -6,12 +6,12 @@
 
 <h2>EditReviewPage</h2>
 <form action="/Home/UpdateReview" method="post">
-
-    Recommended: <select value="@Model.Recommended " name="Recommended">
+    <input type="text" value="@Model.ReviewNumber" name="ReviewNumber" />
+    Recommended: <select value="@Model.Recommended" name="Recommended">
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select><br />
-    Rating:<select value="@Model.Rating" name="Rating">
+    Rating:<select name="Rating">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
