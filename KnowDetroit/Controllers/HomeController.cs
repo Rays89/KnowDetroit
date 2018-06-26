@@ -207,6 +207,40 @@ namespace KnowDetroit.Controllers
             ViewBag.Review = ORM.Reviews.Where(c => c.SiteName.Contains(SiteName)).OrderByDescending(c => c.ReviewNumber).ToList();
             return View();
         }
+        public ActionResult EditReviewPage(int ReviewNumber)
+        {
+            DetroitEntities ORM = new DetroitEntities();
+
+            Review Found = ORM.Reviews.Find(ReviewNumber);
+
+            return View(Found);
+        }
+        public ActionResult UpdateReview(Review updatedReview)
+        {
+            DetroitEntities ORM = new DetroitEntities();
+            Review OldReview = ORM.Reviews.Find(updatedReview.ReviewNumber);
+            if (OldReview != null && ModelState.IsValid)
+            {
+                //3. Update the existing customer
+
+                OldReview.Recommended = updatedReview.Recommended;
+                OldReview.Review1 = updatedReview.Review1;
+                OldReview.Rating = updatedReview.Rating;
+
+                ORM.Entry(OldReview).State = System.Data.Entity.EntityState.Modified;
+
+                //4. save back to the DB 
+                ORM.SaveChanges();
+
+                return RedirectToAction("About");
+
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "Oops! Something went wrong!";
+                return View("Error");
+            }
+        }
 
     }
 

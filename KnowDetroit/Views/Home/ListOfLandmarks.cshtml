@@ -74,7 +74,7 @@
             @foreach (var item in ViewBag.Landmark)
             {
                 <div class="col-md-4 col-xs-2">
-                    <img src="@item.image" /><br />
+                    <a href="/Home/LandmarkView?SiteName=@item.SiteName"><img src="@item.image" /></a><br />
                     <h4><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></h4>
                     <h5>@item.Address</h5>
                     @if (item.Reviews.Count > 0)
