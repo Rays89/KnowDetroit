@@ -10,7 +10,7 @@
 </style>
 <br />
 <div class="panel-collapse">
-    <div class="panel-primary" style="display: flex; flex-wrap: wrap; justify-content:flex-start; align-content:sp; background-color:red; padding-top:50px; padding-left:50px">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; flex-direction:row; align-content:center; background-color:red; padding-top:50px; padding-left:50px; padding-bottom:50px">
         @foreach (var c in ViewBag.UserPhotos)
         {
             if (c.imageURL == null)

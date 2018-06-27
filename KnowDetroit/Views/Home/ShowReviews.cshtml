@@ -6,8 +6,8 @@
     @foreach (var c in ViewBag.Review)
     {
         <tr>
-            <td>@c.UserID <br /> Recommended:@c.Recommended <br /> Rating:@c.Rating <br /><br /> @c.Review1</td>
-
+            <td><img src="@c.imageURL" /><br /> Recommended:@c.Recommended <br /> Rating:@c.Rating <br /><br /> @c.Review1</td>
+            
 
         </tr>
     }

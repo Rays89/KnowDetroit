@@ -29,12 +29,11 @@ textarea {
     color: darkorange;
     text-shadow: 4px 4px darkblue;
 }
-#footer {
+#details{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     line-height: 1.428571429;
-    color: darkorange;
-    text-shadow: 4px 4px darkblue;
-    margin-bottom:35px;
+    color: white;
+    text-shadow: 2px 2px darkblue;
 }
 

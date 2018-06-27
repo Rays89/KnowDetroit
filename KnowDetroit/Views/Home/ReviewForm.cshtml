@@ -2,17 +2,20 @@
 @{
     ViewBag.Title = "ReviewForm";
 }
-
-
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/c_crop,w_1642,x_0,y_253/v1530083234/spirit_rw.jpg);
+    }
+</style>
 <h2>Review</h2>
 <h3>@ViewBag.SiteName</h3>
 <form action="/Home/AddNewRating" method="post" enctype="multipart/form-data">
-    <input type="text" value="@ViewBag.SiteName" name="SiteName" /><br />
-    Recommended: <select name="Recommended">
+    <input type="text" value="@ViewBag.SiteName" name="SiteName" hidden />
+    <h3>Recommended: </h3><select name="Recommended">
         <option value="Yes">Yes</option>
         <option value="No">No</option>
-    </select><br />
-    Rating:<select name="Rating">
+    </select><br /><br />
+    <h3>Rating: </h3><select name="Rating">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -23,11 +26,11 @@
         <option value="8">8</option>
         <option value="9">9</option>
         <option value="10">10</option>
-    </select> <br />
+    </select> <br /><br />
 
-    Review: <input type="text" name="Review1" />
-    <br />
-    <input type="file" name="upload" value="UPLOAD" /><br/>
+    <h3>Review: </h3><input type="text" name="Review1" />
+    <br /><br />
+    <input type="file" name="upload" value="UPLOAD" /><br /><br />
     <input type="submit" value="Rate">
 </form>
 

@@ -3,14 +3,28 @@
     ViewBag.Title = "LandmarkView";
 }
 <h2>@ViewBag.Found.SiteName</h2>
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529949631/det.18.ss_.MDCVB_2015_141.jpg);
+    }
+</style>
+<br/>
+<div class="panel-collapse">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; flex-direction:row; background-color:red; padding-top:50px; padding-left:50px; padding-bottom:50px">
+        <div class="col-md-4 col-xs-2">
+            <img src=@ViewBag.Found.image height="300" width="300" />
+        </div>
+        <div class="col-md-4 col-xs-2">
+            <img src="https://image.maps.api.here.com/mia/1.6/mapview?c=@ViewBag.Found.Latitude,@ViewBag.Found.Longitude&z=16&w=300&h=300&app_id=NyWEeujT8PLJTtEbZkW4&app_code=UdwQrkrFpr9XQvgWW0xGEQ" />
+        </div>
+    </div>
+</div>
+<span id="details">
+    <p>@ViewBag.Found.Description</p>
+    <p>@ViewBag.Found.Address</p>
+</span>
 
-<img src="https://image.maps.api.here.com/mia/1.6/mapview?c=@ViewBag.Found.Latitude,@ViewBag.Found.Longitude&z=16&w=300&h=300&app_id=NyWEeujT8PLJTtEbZkW4&app_code=UdwQrkrFpr9XQvgWW0xGEQ" />
-<img src=@ViewBag.Found.image height="300" width="300" />
-<a href="/Home/ShowUserPhotos?SiteName=@ViewBag.Found.SiteName">PHOTOS</a>
-
-<p>@ViewBag.Found.Description</p>
-<p>@ViewBag.Found.Address</p>
-
-<a href="/Home/ReviewForm?SiteName=@ViewBag.Found.SiteName" class="btn btn-default">Click Here to Rate/Review</a>
-<a href="/Home/ShowReviews?SiteName=@ViewBag.Found.SiteName">Reviews</a>
+            <a href="/Home/ReviewForm?SiteName=@ViewBag.Found.SiteName" class="btn btn-default">Click Here to Rate/Review</a>
+            <a href="/Home/ShowReviews?SiteName=@ViewBag.Found.SiteName">Reviews</a>
+            <a href="/Home/ShowUserPhotos?SiteName=@ViewBag.Found.SiteName">Photos</a>
 
