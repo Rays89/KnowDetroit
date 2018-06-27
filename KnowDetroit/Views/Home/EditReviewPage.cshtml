@@ -6,9 +6,6 @@
 <h2>EditReviewPage</h2>
 <form action="/Home/UpdateReview" method="post">
 
-    <input type="text" value="@Model.ReviewNumber" name="ReviewNumber" />
-    <h3>Recommended: </h3> <select value="@Model.Recommended" name="Recommended">
-
     <input type="text" value="@Model.ReviewNumber" name="ReviewNumber" hidden />
     <input type="text" value="@Model.SiteName" name="SiteName" readonly /><br />
     Recommended: <select value="@Model.Recommended" name="Recommended">
