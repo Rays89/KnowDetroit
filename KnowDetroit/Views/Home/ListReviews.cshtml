@@ -3,17 +3,22 @@
     ViewBag.Title = "ListReviews";
 }
 
+<<<<<<< HEAD
 
 
+=======
+<h2><span id="details">List Of Reviews</span></h2>
+>>>>>>> formatting and making front end look better
 
 <style>
     body {
         background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529949631/det.18.ss_.MDCVB_2015_141.jpg);
-    }
+        background-attachment: fixed;
+        }
 </style><br/>
-<h2>ListReviews</h2>
 <br />
 <a href="/Home/ShowUserReviews" class="btn btn-default">Your Reviews</a>
+<<<<<<< HEAD
 <a href="/Home/ListOfLandMarks" class="btn btn-default">LandMarks</a>
 
 
@@ -24,6 +29,16 @@
     <th>Reviews</th>
     <th>Recommended</th>
     <th>Rating</th>
+=======
+<a href="/Home/ListOfLandMarks" class="btn btn-default">Landmarks</a>
+
+<table class="table">
+  
+    <th><span id="details">Landmark</span></th>
+    <th><span id="details">Review</span></th>
+    <th><span id="details">Recommended</span></th>
+    <th<span id="details">>Rating</span></th>
+>>>>>>> formatting and making front end look better
 
     @foreach (var c in ViewBag.Review)
     {

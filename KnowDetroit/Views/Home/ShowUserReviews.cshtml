@@ -3,19 +3,22 @@
     ViewBag.Title = "ShowUserReviews";
 }
 
-<h2>Show User Reviews</h2>
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/c_scale,w_1300/v1529501303/Detroit/Detroit.jpg);
+        background-attachment: fixed;
+    }
+</style>
+<h2><span id="details">Show User Reviews</span></h2>
 
 <table class="table">
     <th>ReviewNumber</th>
     <th>Reviews</th>
     @foreach (var c in ViewBag.UserReviews)
     {
-     
         <tr>
-            
             <td><span id="details">@c.ReviewNumber</span></td>
-            <td><span id="details">@c.Review1</span> </td>
-            
+            <td><span id="details">@c.Review1</span></td>
             <td>
                 <a href="/Home/DeleteReview?ReviewNumber=@c.ReviewNumber" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">
                     <span class="glyphicon glyphicon-trash"></span>Delete
@@ -24,12 +27,10 @@
                     <span class="glyphicon glyphicon"></span>Update
                 </a>
             </td>
-
-
-
         </tr>
     }
 </table>
+<<<<<<< HEAD
 <a href="/Home/ListReviews">Reviews</a>
 <a href="/Home/ListOfLandMarks">LandMarks</a>
 
@@ -38,3 +39,7 @@
         background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529949631/det.18.ss_.MDCVB_2015_141.jpg);
     }
 </style>
+=======
+<a href="/Home/ListReviews" class="btn btn-default">Reviews</a>
+<a href="/Home/ListOfLandMarks" class="btn btn-default">LandMarks</a>
+>>>>>>> formatting and making front end look better

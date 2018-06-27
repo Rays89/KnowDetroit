@@ -5,6 +5,7 @@
 <style>
     body {
         background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529501304/Detroit/Belle_Isle_4.jpg);
+        background-attachment: fixed;
     }
 </style>
 <br />
@@ -21,76 +22,76 @@
 
 
 <br />
+<br />
+<table id="searchbyname" class="table"></table>
+<form action="/Home/SearchLandmarkBySiteName" method="post">
+    <h3>Search By Name: </h3> <input type="text" name="SiteName" id="SiteName" />
+    <input type="submit" value="Search" />
+</form><br />
 
-    <br />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //$("#searchButton").click(function ()
+        $("#SiteName").keyup(function () {
+            $.ajax({
+                type: "POST",
+                url: "/Home/SearchLandmarkBySiteName",
+                data: '{SiteName:"' + $("#SiteName").val() + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
 
-    <form action="/Home/SearchLandmarkBySiteName" method="post">
-        <h3>Search By Name: </h3> <input type="text" name="SiteName" id="SiteName" />
-        <input type="submit" value="Search" />
-    </form><br />
-
-    <a href="/Home/ListReviews" class="btn btn-default">See All Reviews</a>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            //$("#searchButton").click(function ()
-            $("#SiteName").keyup(function () {
-                $.ajax({
-                    type: "POST",
-                    url: "/Home/SearchLandmarkBySiteName",
-                    data: '{SiteName:"' + $("#SiteName").val() + '"}',
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function (response) {
-
-                        // alert(response);
-                        if ($("#SiteName").val() == "") {
-                            $("#searchResults").html("");
-                        }
-                        else {
-                            $("#searchResults").html("");//clear the table
-                            for (var i = 0; i < response.length; i++) {
-                                var Landmark = response[i];//get sitename at index i
-                                var Tr = "<tr>";
-                                var Td1 = "<td>" + `<a href="/Home/LandmarkView?SiteName=${Landmark.SiteName}">` + Landmark.SiteName + "</a></td>";
-                                var Td2 = "<td>" + Landmark.Address + "</td>";
-                                $("#searchResults").append(Tr + Td1 + Td2 + "</tr>");
-                            }
-                        }
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
+                    // alert(response);
+                    if ($("#SiteName").val() == "") {
+                        $("#searchResults").html("");
                     }
-                });
+                    else {
+                        $("#searchResults").html("");//clear the table
+                        for (var i = 0; i < response.length; i++) {
+                            var Landmark = response[i];//get sitename at index i
+                            var Tr = "<tr>";
+                            var Td1 = "<td>" + `<a href="/Home/LandmarkView?SiteName=${Landmark.SiteName}">` + Landmark.SiteName + "</a></td>";
+                            var Td2 = "<td>" + Landmark.Address + "</td>";
+                            $("#searchResults").append(Tr + Td1 + Td2 + "</tr>");
+                        }
+                    }
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                }
             });
         });
-    </script>
+    });
+</script>
 
-    <a href="/Home/HighlyRatedLandmark" class="btn btn-default">Top 3 User Rated</a><br />
-
-    <div class="panel-collapse">
-        <div class="panel-primary" style="display: flex; flex-wrap: wrap; background-color:red; padding-top:50px; padding-left:50px">
-
-            @foreach (var item in ViewBag.Landmark)
-            {
-                <div class="col-md-4 col-xs-2">
-                    <a href="/Home/LandmarkView?SiteName=@item.SiteName"><img src="@item.image" /></a><br />
-                    <h4><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></h4>
-                    <h5>@item.Address</h5>
-                    @if (item.Reviews.Count > 0)
-                    {
-                        <h5>Rating: @Math.Round((item.Rating / (double)item.Reviews.Count), 1)</h5>
-                    }
-                    else
-                    {
-                        <h5></h5>
-                    }
-                    <br />
-
-                </div>
-            }
+<a href="/Home/HighlyRatedLandmark" class="btn btn-default">Top 3 User Rated</a><br />
+<a href="/Home/ListReviews" class="btn btn-default">See All Reviews</a>
 
 
-        </div>
+<div class="panel-collapse">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; background-color:red; padding-top:50px; padding-left:50px">
+
+        @foreach (var item in ViewBag.Landmark)
+        {
+            <div class="col-md-4 col-xs-2">
+                <a href="/Home/LandmarkView?SiteName=@item.SiteName"><img src="@item.image" /></a><br />
+                <h4><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></h4>
+                <h5>@item.Address</h5>
+                @if (item.Reviews.Count > 0)
+                {
+                    <h5>Rating: @Math.Round((item.Rating / (double)item.Reviews.Count), 1)</h5>
+                }
+                else
+                {
+                    <h5></h5>
+                }
+                <br />
+
+            </div>
+        }
+
+
     </div>
+</div>
 
