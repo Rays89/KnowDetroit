@@ -8,15 +8,18 @@
 <table class="table">
     @foreach (var c in ViewBag.UserReviews)
     {
+     
         <tr>
-            <td>@c.ReviewNumber</td>
-            <td>@c.Review1</td>
+            
+            <td><span id="details">@c.ReviewNumber</span></td>
+            <td><span id="details">@c.Review1</span> </td>
+            
             <td>
                 <a href="/Home/DeleteReview?ReviewNumber=@c.ReviewNumber" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">
                     <span class="glyphicon glyphicon-trash"></span>Delete
                 </a>
                 <a href="/Home/EditReviewPage?ReviewNumber=@c.ReviewNumber" onclick="return confirm('Are you ready to update?')" class="btn btn-danger btn-sm">
-                    <span class="glyphicon glyphicon-trash"></span>Update
+                    <span class="glyphicon glyphicon"></span>Update
                 </a>
             </td>
 

@@ -3,17 +3,28 @@
     ViewBag.Title = "ListReviews";
 }
 
-<h2>ListReviews</h2>
+<h2>List Of Reviews</h2>
 
 <table class="table">
+  
+    <th>SiteName</th>
+    <th>Review1</th>
+    <th>Recommended</th>
+    <th>Rating</th>
+
     @foreach (var c in ViewBag.Review)
     {
         <tr>
-            <td>@c.ReviewNumber</td>
-            <td>@c.SiteName</td>
-            <td>@c.Review1</td>
-            <td>@c.Recommended</td>
-            <td>@c.Rating</td>
+
+            
+            <td><span id="details">@c.SiteName</span></td>
+
+            <td><span id="details">@c.Review1</span></td>
+
+            <td><span id="details">@c.Recommended</span></td>
+
+            <td><span id="details">@c.Rating</span></td>
+
         </tr>
     }
 </table>
