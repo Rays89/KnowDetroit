@@ -79,12 +79,12 @@ namespace KnowDetroit.Controllers
             return View();
         }
 
-        public ActionResult SearchLandmarkBySiteName(string SiteName)
+        public JsonResult SearchLandmarkBySiteName(string SiteName)
         {
             DetroitEntities ORM = new DetroitEntities();
-            ViewBag.Landmark = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
+            List<Landmark> Landmarks = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
 
-            return View("ListOfLandmarks");
+            return Json(Landmarks);
         } 
 
        

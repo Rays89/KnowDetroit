@@ -24,10 +24,10 @@
 <br />
 <br />
 <table id="searchbyname" class="table"></table>
-<form action="/Home/SearchLandmarkBySiteName" method="post">
+
     <h3>Search By Name: </h3> <input type="text" name="SiteName" id="SiteName" />
     <input type="submit" value="Search" />
-</form><br />
+<br />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
@@ -42,22 +42,22 @@
                 dataType: "json",
                 success: function (response) {
 
-                    // alert(response);
+                     alert(response);
                     if ($("#SiteName").val() == "") {
-                        $("#searchResults").html("");
+                        $("#searchbyname").html("");
                     }
                     else {
-                        $("#searchResults").html("");//clear the table
+                        $("#searchbyname").html("");//clear the table
                         for (var i = 0; i < response.length; i++) {
                             var Landmark = response[i];//get sitename at index i
                             var Tr = "<tr>";
                             var Td1 = "<td>" + `<a href="/Home/LandmarkView?SiteName=${Landmark.SiteName}">` + Landmark.SiteName + "</a></td>";
-                            var Td2 = "<td>" + Landmark.Address + "</td>";
-                            $("#searchResults").append(Tr + Td1 + Td2 + "</tr>");
+                          //  var Td2 = "<td>" + Landmark.Address + "</td>";
+                            $("#searchbyname").append(Tr + Td1 + "</tr>");
                         }
                     }
                 },
-                failure: function (response) {
+                error: function (response) {
                     alert(response.responseText);
                 }
             });
