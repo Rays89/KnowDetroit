@@ -6,6 +6,8 @@
 <h2>Show User Reviews</h2>
 
 <table class="table">
+    <th>ReviewNumber</th>
+    <th>Reviews</th>
     @foreach (var c in ViewBag.UserReviews)
     {
      
@@ -30,3 +32,9 @@
 </table>
 <a href="/Home/ListReviews">Reviews</a>
 <a href="/Home/ListOfLandMarks">LandMarks</a>
+
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529949631/det.18.ss_.MDCVB_2015_141.jpg);
+    }
+</style>

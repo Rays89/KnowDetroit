@@ -6,7 +6,11 @@
     @foreach (var c in ViewBag.Review)
     {
         <tr>
-            <td><img src="@c.imageURL" /><br /> Recommended:@c.Recommended <br /> Rating:@c.Rating <br /><br /> @c.Review1</td>
+
+
+
+            <td><span id="details"><img src="@c.imageURL" /><br /> Recommended:@c.Recommended <br /> Rating:@c.Rating <br /><br /> @c.Review1 </span></td>
+            
 
 
         </tr>
@@ -15,3 +19,8 @@
 <a href="/Home/ListOfLandmarks" class="btn btn-default">Return to Landmarks</a>
 
 
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529949631/det.18.ss_.MDCVB_2015_141.jpg);
+    }
+</style>
