@@ -4,14 +4,14 @@
 }
 <style>
     body {
-        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529949631/det.18.ss_.MDCVB_2015_141.jpg);
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529501304/Detroit/Belle_Isle_4.jpg);
     }
 </style>
 <br />
 
 
 <form action="/Home/SortOptions" method="post">
-    Search By: <select name="sortOption">
+    <h3>Search By:     </h3> <select name="sortOption">
         <option value="0" selected></option>
         <option value="1">Rating</option>
         <option value="2">Popularity</option>
@@ -25,11 +25,11 @@
     <br />
 
     <form action="/Home/SearchLandmarkBySiteName" method="post">
-        Search By Name: <input type="text" name="SiteName" id="SiteName" />
+        <h3>Search By Name: </h3> <input type="text" name="SiteName" id="SiteName" />
         <input type="submit" value="Search" />
     </form><br />
 
-    <a href="/Home/ListReviews">See All Reviews</a><br />
+    <a href="/Home/ListReviews" class="btn btn-default">See All Reviews</a>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -66,7 +66,7 @@
         });
     </script>
 
-    <a href="/Home/HighlyRatedLandmark">Top 3 User Rated</a><br />
+    <a href="/Home/HighlyRatedLandmark" class="btn btn-default">Top 3 User Rated</a><br />
 
     <div class="panel-collapse">
         <div class="panel-primary" style="display: flex; flex-wrap: wrap; background-color:red; padding-top:50px; padding-left:50px">

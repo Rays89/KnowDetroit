@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "EditReviewPage";
 }
 @model KnowDetroit.Models.Review
@@ -7,11 +6,11 @@
 <h2>EditReviewPage</h2>
 <form action="/Home/UpdateReview" method="post">
     <input type="text" value="@Model.ReviewNumber" name="ReviewNumber" />
-    Recommended: <select value="@Model.Recommended" name="Recommended">
+    <h3>Recommended: </h3> <select value="@Model.Recommended" name="Recommended">
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select><br />
-    Rating:<select name="Rating">
+        <h3>Rating: </h3><select name="Rating">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -27,3 +26,6 @@
 
     <input type="submit" value="Save updates" />
 </form>
+<br />
+<a href="/Home/ListOfLandmarks" class="btn btn-default">Return to Landmarks</a>
+<a href="/Home/ShowUserReviews" class="btn btn-default">Return to Your Reviews</a>
