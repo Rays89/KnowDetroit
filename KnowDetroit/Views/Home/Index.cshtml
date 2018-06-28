@@ -10,16 +10,17 @@
     }
 </style>
 <marquee behavior="scroll" direction="left" id="marquee" margin="0">
-    <span id="marquee">Get To Know DETROIT</span>   <img src="@ViewBag.Icon" /> <span id="marquee">@ViewBag.Temp @ViewBag.WeatherData @ViewBag.Today</span>
+    <span id="marquee">Get To Know Detroit</span>   <img src="@ViewBag.Icon" /> <span id="marquee">@ViewBag.Temp @ViewBag.WeatherData @ViewBag.Today</span>
 </marquee>
 <span id="largedetails"> Get to KnowDetroit</span><span id="details2"> Your virtual guide to the Motor City</span></p>
 <br />
         <p><span id="details">Featured Landmark</span></p>
 <div class="panel-collapse">
-    <div class="panel-primary" style="display: flex; flex-wrap: wrap; flex-direction:row; background: rgba(0,0,0,.5); padding-top:50px; padding-left:50px; padding-bottom:50px">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; flex-direction:row; background: rgba(0,0,0,.2); padding-top:50px; padding-left:50px; padding-bottom:50px">
         <div class="col-md-4 col-xs-2">
             <img src=@ViewBag.Random.image height="300" width="300" />
         </div>
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
         <div class="col-md-4 col-xs-2">
             <img src="https://image.maps.api.here.com/mia/1.6/mapview?c=@ViewBag.Random.Latitude,@ViewBag.Random.Longitude&z=16&w=300&h=300&app_id=NyWEeujT8PLJTtEbZkW4&app_code=UdwQrkrFpr9XQvgWW0xGEQ" />
         </div>

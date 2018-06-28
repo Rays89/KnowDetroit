@@ -22,15 +22,14 @@
 </form>
 
 
-<br />
-<br />
-<table id="searchbyname" class="table"></table>
-
-    <span id="details">Search By Name: </span> <input type="text" name="SiteName" id="SiteName" />
+@*<table id="searchbyname" class="table"></table>*@
+<form action="SearchLandmarkBySiteName" method="get">
+    <span id="details">Search By Name: </span><input type="text" name="SiteName" id="SiteName" />
     <input type="submit" value="Search" />
+</form>
 <br />
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+@*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
     $(function () {
         //$("#searchButton").click(function ()
@@ -84,15 +83,14 @@
             });
         });
     });
-</script>
+</script>*@
 
 
-<a href="/Home/HighlyRatedLandmark" class="btn btn-default">Top 3 User Rated</a><br />
-<a href="/Home/ListReviews" class="btn btn-default">See All Reviews</a>
-
+<span id="details">Top 3 User Rated </span><a href="/Home/HighlyRatedLandmark" class="btn btn-default">Enter</a><br/>
+<span id="details">See all Reviews </span><a href="/Home/ListReviews" class="btn btn-default">Enter</a>
 
 <div class="panel-collapse">
-    <div class="panel-primary" style="display: flex; flex-wrap: wrap; background-color:rgba(0,0,0,.5); padding-top:50px; padding-left:50px">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; background-color:rgba(0,0,0,.2); padding-top:50px; padding-left:50px">
 
         @foreach (var item in ViewBag.Landmark)
         {

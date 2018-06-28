@@ -12,23 +12,21 @@
 <h2><span id="details">Show User Reviews</span></h2>
 
 <table class="table">
-    <th>ReviewNumber</th>
-    <th>Reviews</th>
-    @foreach (var c in ViewBag.UserReviews)
-    {
-        <tr>
-            <td><span id="details">@c.ReviewNumber</span></td>
-            <td><span id="details">@c.Review1</span></td>
-            <td>
-                <a href="/Home/DeleteReview?ReviewNumber=@c.ReviewNumber" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">
-                    <span class="glyphicon glyphicon-trash"></span>Delete
-                </a>
-                <a href="/Home/EditReviewPage?ReviewNumber=@c.ReviewNumber" onclick="return confirm('Are you ready to update?')" class="btn btn-danger btn-sm">
-                    <span class="glyphicon glyphicon"></span>Update
-                </a>
-            </td>
-        </tr>
-    }
+    <span style="display:block; background-color:rgba(0,0,0,.2); padding-top:10px; padding-left:10px; padding-bottom:10px">
+        >
+        @foreach (var c in ViewBag.UserReviews)
+        {
+
+            <img src="@c.imageURL" /><br /><Span id="details3"> @c.SiteName <br />Recommended:@c.Recommended <br /> Rating:@c.Rating <br /><br /> @c.Review1 </Span>
+
+            <a href="/Home/DeleteReview?ReviewNumber=@c.ReviewNumber" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">
+                <span class="glyphicon glyphicon-trash"></span>Delete
+            </a>
+            <a href="/Home/EditReviewPage?ReviewNumber=@c.ReviewNumber" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon"></span>Update</a>
+
+
+        }
+    </span>
 </table>
 
 <a href="/Home/ListReviews" class="btn btn-default">Reviews</a>

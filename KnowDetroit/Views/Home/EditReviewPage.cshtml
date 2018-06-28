@@ -3,20 +3,23 @@
 }
 @model KnowDetroit.Models.Review
 
-<h2>EditReviewPage</h2>
+<style>
+    body {
+        background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/c_scale,w_1300/v1529501303/Detroit/Detroit.jpg);
+        background-attachment: fixed;
+    }
+</style>
+<span id="largedetails">Edit review for @Model.SiteName</span>
 <form action="/Home/UpdateReview" method="post">
 
-    <input type="text" value="@Model.ReviewNumber" name="ReviewNumber" />
-    <h3>Recommended: </h3> <select value="@Model.Recommended" name="Recommended">
-
+    <input type="text" value="@Model.SiteName" name="SiteName" hidden />
     <input type="text" value="@Model.ReviewNumber" name="ReviewNumber" hidden />
-    <input type="text" value="@Model.SiteName" name="SiteName" readonly /><br />
-    Recommended: <select value="@Model.Recommended" name="Recommended">
+    <Span id="details">Recommended: </Span><select value="@Model.Recommended" name="Recommended">
 
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select><br />
-        <h3>Rating: </h3><select name="Rating">
+    <Span id="details">Rating: </Span><select name="Rating">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -28,7 +31,7 @@
         <option value="9">9</option>
         <option value="10">10</option>
     </select> <br />
-    Review:<input type="text" value="@Model.Review1" name="Review1" /> <br />
+    <Span id="details">Review:</Span> <input type="text" value="@Model.Review1" name="Review1" /><br />
 
     <input type="submit" value="Save updates" />
 </form>

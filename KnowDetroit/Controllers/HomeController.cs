@@ -59,7 +59,7 @@ namespace KnowDetroit.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Contact Page.";
+            ViewBag.Message = "Contact Page";
 
             return View();
         }
@@ -80,12 +80,12 @@ namespace KnowDetroit.Controllers
             return View();
         }
 
-        public JsonResult SearchLandmarkBySiteName(string SiteName)
+        public ActionResult SearchLandmarkBySiteName(string SiteName)
         {
             DetroitEntities ORM = new DetroitEntities();
-            List<Landmark> Landmarks = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
-
-            return Json(Landmarks);
+           // List<Landmark> Landmarks = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
+            ViewBag.Landmark = ORM.Landmarks.Where(c => c.SiteName.Contains(SiteName)).ToList();
+            return View("ListOfLandmarks");
         } 
 
        
@@ -189,8 +189,10 @@ namespace KnowDetroit.Controllers
             {
                 try
                 {
-                    ORM.Reviews.Remove(Found);
                     //4 Save to database
+                    ORM.Landmarks.Find(Found.SiteName).Rating -= Found.Rating;
+                    ORM.Entry(ORM.Landmarks.Find(Found.SiteName)).State = EntityState.Modified;
+                    ORM.Reviews.Remove(Found);
                     ORM.SaveChanges();
                     DeleteTransaction.Commit();
                     return RedirectToAction("ListReviews");
@@ -244,6 +246,7 @@ namespace KnowDetroit.Controllers
 
             Review Found = ORM.Reviews.Find(ReviewNumber);
 
+          
             return View(Found);
         }
         public ActionResult UpdateReview(Review updatedReview)
