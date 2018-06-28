@@ -77,4 +77,13 @@ textarea {
     margin: 0 0 5px;
     
 }
+#details4 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.428571429;
+    color: white;
+    display: block;
+    text-shadow: 2px 2px darkblue;
+    margin: 0 0 5px;
+}
 
