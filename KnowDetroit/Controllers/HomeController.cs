@@ -235,6 +235,7 @@ namespace KnowDetroit.Controllers
         {
             DetroitEntities ORM = new DetroitEntities();
             ViewBag.Review = ORM.Reviews.Where(c => c.SiteName.Contains(SiteName)).OrderByDescending(c => c.ReviewNumber).ToList();
+            ViewBag.SiteName = SiteName;
             return View();
         }
         public ActionResult EditReviewPage(int ReviewNumber)

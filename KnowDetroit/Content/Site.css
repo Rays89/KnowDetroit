@@ -37,7 +37,7 @@ textarea {
     display: inline-block;
     text-shadow: 2px 2px darkblue;
     margin: 0 0 5px;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.2);
     padding-left: 10px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -45,13 +45,13 @@ textarea {
 }
 #largedetails {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 40px;
+    font-size: 36px;
     line-height: 1.428571429;
     color: white;
     display: inline-block;
     text-shadow: 2px 2px darkblue;
     margin: 0 0 5px;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.2);
     padding: 10px;
 }
 #details2 {
@@ -62,7 +62,7 @@ textarea {
     display: inline-block;
     text-shadow: 2px 2px darkblue;
     margin: 0 0 5px;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0,0,0,.2);
     padding-bottom:17px;
     padding-top:32px;
     padding-right:10px;
