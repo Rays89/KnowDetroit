@@ -268,7 +268,7 @@ namespace KnowDetroit.Controllers
                 //4. save back to the DB 
                 ORM.SaveChanges();
 
-                return RedirectToAction("ListOfLandmarks.cshtml");
+                return RedirectToAction("About");
 
             }
             else

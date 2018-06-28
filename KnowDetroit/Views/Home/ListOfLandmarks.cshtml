@@ -6,6 +6,7 @@
     body {
         background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529501304/Detroit/Belle_Isle_4.jpg);
         background-attachment: fixed;
+
     }
 </style>
 <br />
@@ -41,6 +42,26 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
+    <br />
+
+    <form action="/Home/SearchLandmarkBySiteName" method="post">
+        Search By Name: <input type="text" name="SiteName" id="SiteName" />
+        <input type="submit" value="Search" />
+    </form><br />
+
+    <a href="/Home/ListReviews">See All Reviews</a><br />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //$("#searchButton").click(function ()
+            $("#SiteName").keyup(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/SearchLandmarkBySiteName",
+                    data: '{SiteName:"' + $("#SiteName").val() + '"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
 
                      alert(response);
                     if ($("#SiteName").val() == "") {
@@ -64,6 +85,7 @@
         });
     });
 </script>
+
 
 <a href="/Home/HighlyRatedLandmark" class="btn btn-default">Top 3 User Rated</a><br />
 <a href="/Home/ListReviews" class="btn btn-default">See All Reviews</a>
