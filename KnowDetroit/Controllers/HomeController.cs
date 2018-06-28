@@ -43,6 +43,9 @@ namespace KnowDetroit.Controllers
                 ViewBag.WeatherData = WeatherData["time"]["startPeriodName"][0];
                 //ViewBag.IconWeek = WeatherData["data"]["iconLink"];
 
+                DetroitEntities ORM = new DetroitEntities();
+                Random rnd = new Random();
+                ViewBag.Random = ORM.Landmarks.ToList()[rnd.Next(ORM.Landmarks.ToList().Count)];
 
                 return View();
             }
@@ -51,8 +54,6 @@ namespace KnowDetroit.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = " Get to KnowDetroit. ";
-
             return View();
         }
 

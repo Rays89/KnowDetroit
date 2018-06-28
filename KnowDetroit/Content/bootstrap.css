@@ -2001,7 +2001,7 @@ textarea.input-lg {
 
 .btn {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 2px;
   margin-bottom: 0;
   font-size: 14px;
   font-weight: normal;
@@ -2011,7 +2011,8 @@ textarea.input-lg {
   vertical-align: middle;
   cursor: pointer;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 1px;
+  background-color:whitesmoke;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -2051,9 +2052,10 @@ fieldset[disabled] .btn {
 }
 
 .btn-default {
-  color: #333333;
-  background-color: #ffffff;
-  border-color: #cccccc;
+    color: #333333;
+    background-color: whitesmoke;
+    border-color: #cccccc;
+    padding: 2px;
 }
 
 .btn-default:hover,

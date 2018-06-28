@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "LandmarkView";
 }
-<h2>@ViewBag.Found.SiteName</h2>
+<span id="largedetails">@ViewBag.Found.SiteName</span>
 <style>
     body {
         background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529949631/det.18.ss_.MDCVB_2015_141.jpg);
@@ -10,7 +10,7 @@
 </style>
 <br/>
 <div class="panel-collapse">
-    <div class="panel-primary" style="display: flex; flex-wrap: wrap; flex-direction:row; background-color:red; padding-top:50px; padding-left:50px; padding-bottom:50px">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; flex-direction:row; background-color:rgba(0,0,0,.5); padding-top:50px; padding-left:50px; padding-bottom:50px">
         <div class="col-md-4 col-xs-2">
             <img src=@ViewBag.Found.image height="300" width="300" />
         </div>

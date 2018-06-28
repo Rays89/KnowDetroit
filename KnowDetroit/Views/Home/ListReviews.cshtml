@@ -3,7 +3,7 @@
     ViewBag.Title = "ListReviews";
 }
 
-<h2><span id="details">List Of Reviews</span></h2>
+<span id="details">List Of Reviews</span>
 <style>
     body {
         background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/v1529949631/det.18.ss_.MDCVB_2015_141.jpg);
@@ -17,25 +17,15 @@
 
 <table class="table">
   
-    <th><span id="details">Landmark</span></th>
-    <th><span id="details">Review</span></th>
-    <th><span id="details">Recommended</span></th>
-    <th<span id="details">>Rating</span></th>
+   
 
     @foreach (var c in ViewBag.Review)
     {
-        <tr>
-
-            
-            <td><span id="details">@c.SiteName</span></td>
-
-            <td><span id="details">@c.Review1</span></td>
-
-            <td><span id="details">@c.Recommended</span></td>
-
-            <td><span id="details">@c.Rating</span></td>
-
-        </tr>
+    <tr>
+        <td>
+            <span style="display:block; background-color:rgba(0,0,0,.5); padding-top:10px; padding-left:10px; padding-bottom:10px"><img src="@c.imageURL" /><br /><Span id="details3"> @c.SiteName <br />Recommended:@c.Recommended <br /> Rating:@c.Rating <br /><br /> @c.Review1 </Span></span>
+        </td>
+    </tr> 
     }
 </table>
 

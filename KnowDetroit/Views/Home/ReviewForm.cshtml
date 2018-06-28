@@ -7,15 +7,15 @@
         background-image: url(http://res.cloudinary.com/dvhowme2s/image/upload/c_crop,w_1642,x_0,y_253/v1530083234/spirit_rw.jpg);
     }
 </style>
-<h2>Review</h2>
-<h3>@ViewBag.SiteName</h3>
+<br/>
+<span id="largedetails">Review @ViewBag.SiteName</span>
 <form action="/Home/AddNewRating" method="post" enctype="multipart/form-data">
     <input type="text" value="@ViewBag.SiteName" name="SiteName" hidden />
-    <h3>Recommended: </h3><select name="Recommended">
+    <span id="details">Recommended: </span><select name="Recommended">
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select><br /><br />
-    <h3>Rating: </h3><select name="Rating">
+    <span id="details">Rating: </span><select name="Rating">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -28,7 +28,7 @@
         <option value="10">10</option>
     </select> <br /><br />
 
-    <h3>Review: </h3><input type="text" name="Review1" />
+    <span id="details">Review: </span><input type="text" name="Review1" />
     <br /><br />
     <input type="file" name="upload" value="UPLOAD" /><br /><br />
     <input type="submit" value="Rate">

@@ -9,6 +9,7 @@
 
 namespace KnowDetroit.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -29,6 +30,7 @@ namespace KnowDetroit.Models
         public string image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Review> Reviews { get; set; }
     }
 }

@@ -12,7 +12,7 @@
 
 
 <form action="/Home/SortOptions" method="post">
-    <h3>Search By:     </h3> <select name="sortOption">
+    <span id="details">Search By:</span><select name="sortOption">
         <option value="0" selected></option>
         <option value="1">Rating</option>
         <option value="2">Popularity</option>
@@ -25,7 +25,7 @@
 <br />
 <table id="searchbyname" class="table"></table>
 
-    <h3>Search By Name: </h3> <input type="text" name="SiteName" id="SiteName" />
+    <span id="details">Search By Name: </span> <input type="text" name="SiteName" id="SiteName" />
     <input type="submit" value="Search" />
 <br />
 
@@ -70,21 +70,21 @@
 
 
 <div class="panel-collapse">
-    <div class="panel-primary" style="display: flex; flex-wrap: wrap; background-color:red; padding-top:50px; padding-left:50px">
+    <div class="panel-primary" style="display: flex; flex-wrap: wrap; background-color:rgba(0,0,0,.5); padding-top:50px; padding-left:50px">
 
         @foreach (var item in ViewBag.Landmark)
         {
             <div class="col-md-4 col-xs-2">
                 <a href="/Home/LandmarkView?SiteName=@item.SiteName"><img src="@item.image" /></a><br />
                 <h4><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></h4>
-                <h5>@item.Address</h5>
+                <span id="details3">@item.Address</span>
                 @if (item.Reviews.Count > 0)
                 {
-                    <h5>Rating: @Math.Round((item.Rating / (double)item.Reviews.Count), 1)</h5>
+                    <span id="details3">Rating: @Math.Round((item.Rating / (double)item.Reviews.Count), 1)</span>
                 }
                 else
                 {
-                    <h5></h5>
+                    <span id="details3">Not yet reviewed</span>
                 }
                 <br />
 

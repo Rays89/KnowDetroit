@@ -9,6 +9,7 @@
 
 namespace KnowDetroit.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -22,7 +23,9 @@ namespace KnowDetroit.Models
         public int Rating { get; set; }
         public string imageURL { get; set; }
     
+
         public virtual AspNetUser AspNetUser { get; set; }
+        [JsonIgnore]
         public virtual Landmark Landmark { get; set; }
     }
 }

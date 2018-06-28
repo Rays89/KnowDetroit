@@ -34,10 +34,47 @@ textarea {
     font-size: 20px;
     line-height: 1.428571429;
     color: white;
-    display:block;
+    display: inline-block;
     text-shadow: 2px 2px darkblue;
     margin: 0 0 5px;
-    background: rgba(0,0,0,3);
-    padding: 20px;
+    background-color: rgba(0,0,0,.5);
+    padding-left: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 10px;
+}
+#largedetails {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 40px;
+    line-height: 1.428571429;
+    color: white;
+    display: inline-block;
+    text-shadow: 2px 2px darkblue;
+    margin: 0 0 5px;
+    background-color: rgba(0,0,0,.5);
+    padding: 10px;
+}
+#details2 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.428571429;
+    color: white;
+    display: inline-block;
+    text-shadow: 2px 2px darkblue;
+    margin: 0 0 5px;
+    background-color: rgba(0,0,0,.5);
+    padding-bottom:17px;
+    padding-top:32px;
+    padding-right:10px;
+}
+#details3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.428571429;
+    color: white;
+    display: block;
+    text-shadow: 2px 2px darkblue;
+    margin: 0 0 5px;
+    
 }
 
