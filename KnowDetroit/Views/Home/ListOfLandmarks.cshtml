@@ -96,7 +96,7 @@
         {
             <div class="col-md-4 col-xs-2">
                 <a href="/Home/LandmarkView?SiteName=@item.SiteName"><img src="@item.image" /></a><br />
-                <h4><a href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a></h4>
+                <a class="contact-link" href="/Home/LandmarkView?SiteName=@item.SiteName">@item.SiteName</a>
                 <span id="details3">@item.Address</span>
                 @if (item.Reviews.Count > 0)
                 {
